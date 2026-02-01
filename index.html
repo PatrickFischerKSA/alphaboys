@@ -1,0 +1,451 @@
+
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alpha Boys – Interaktive Lerneinheit (Gymnasium)</title>
+
+  <!-- =========================================================
+       INDEX.HTML — Alpha Boys Lernumgebung
+       =========================================================
+       ÄNDERUNGSPROTOKOLL
+       [2026-02-01] v1.0
+       - Module 0–6
+       - Inhaltssicherung mit Sofortkorrektur
+       - Notizen + Export
+       - Transparentes Overlay-GIF permanent
+       ========================================================= -->
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <div id="gifOverlay" aria-hidden="true"></div>
+
+  <div id="modalBg" role="dialog" aria-modal="true" aria-label="Dialog">
+    <div id="modal">
+      <h3 id="modalTitle">Dialog</h3>
+      <div id="modalBody"></div>
+      <div class="closeRow">
+        <button id="modalClose" class="primary">Schliessen</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="app">
+    <aside id="sidebar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Alpha Boys</h1>
+          <p>Interaktive Lerneinheit (18+)</p>
+        </div>
+      </div>
+
+      <div class="sideControls">
+        <button id="rulesBtn">Regeln</button>
+        <button id="resetBtn" class="danger">Reset</button>
+      </div>
+
+      <div class="progressBox" aria-label="Fortschritt">
+        <div class="progressRow">
+          <div class="small"><b>Fortschritt</b></div>
+          <div class="small" id="progressPct">0%</div>
+        </div>
+        <div class="progressBar" aria-hidden="true"><div id="progressFill"></div></div>
+        <div class="progressRow" style="margin-top:8px">
+          <div class="small">Quiz: <span id="statDone">0/0</span></div>
+          <div class="small">Korrekt: <span id="statCorrect">0</span></div>
+        </div>
+        <div class="progressRow" style="margin-top:2px">
+          <div class="small">Score: <span id="statPoints">0 Punkte</span></div>
+          <div class="small">Tipp: <kbd>ESC</kbd> schliesst Dialoge</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Navigation">
+        <a href="#m0">Modul 0: Einstieg <span class="badge">Video</span></a>
+        <a href="#m1">Modul 1: Feminismus <span class="badge">Definition</span></a>
+        <a href="#m2">Modul 2: Codes & Mechanismen <span class="badge">Quiz</span></a>
+        <a href="#m3">Modul 3: Tate & Öffentlichkeit <span class="badge">ARTE</span></a>
+        <a href="#m4">Modul 4: Krisen-Audios <span class="badge">Audio</span></a>
+        <a href="#m5">Modul 5: Rollenspiel <span class="badge">Game</span></a>
+        <a href="#m6">Modul 6: Abschluss <span class="badge">Export</span></a>
+      </nav>
+
+      <div class="hr"></div>
+      <div class="small">
+        <b>Hinweis:</b> Thema: misogynes Gedankengut, Radikalisierung, Gewalt. Ziel: Analyse & Prävention.
+      </div>
+    </aside>
+
+    <main id="main">
+      <div class="container">
+        <div class="header">
+          <div>
+            <h2>Alpha Boys – Medien, Männlichkeitsbilder, Radikalisierung</h2>
+            <div class="small">für 18-jährige Gymnasiast*innen · interaktiv · Sofortfeedback · Export</div>
+          </div>
+          <div>
+            <span class="pill">Speichert automatisch</span>
+            <span class="pill">Druckansicht möglich</span>
+          </div>
+        </div>
+
+        <section id="m0" class="card">
+          <h3>Modul 0 – Einstieg: Statusversprechen in 30 Sekunden</h3>
+          <p>Ziel: <b>Beobachten ohne Urteil</b>. Danach sichern wir Wahrnehmungen und Strategien.</p>
+          <div class="notice risk"><b>Zitat-Regel:</b> Problematische Aussagen nicht nachsprechen – paraphrasieren.</div>
+
+          <div class="videoWrap" style="margin-top:12px">
+            <video controls preload="metadata">
+              <source src="https://www.dropbox.com/scl/fi/x12jxr9o32m4fxajl3mf9/How-To-Get-A-Ferrari-In-30-Seconds-Andrew-Tate.mp4?rlkey=ipph4zbp6zec5cs7dk0qvbf1p&st=bu0sv60f&dl=1" type="video/mp4" />
+            </video>
+          </div>
+
+          <div class="grid2" style="margin-top:14px">
+            <div class="card" style="background:rgba(0,0,0,.16)">
+              <h4>Beobachtung</h4>
+              <ul class="ul">
+                <li>Was wird gezeigt? (Tempo, Luxus, Ton, Gestik)</li>
+                <li>Welche Emotion wird getriggert? (Bewunderung, Neid, Trotz?)</li>
+              </ul>
+
+              <div class="quizItem" data-quiz="m0_q1" data-type="mc"
+                   data-answer="b"
+                   data-ok="✅ Richtig. Vereinfachung + Sog: 'sofort machbar'."
+                   data-bad="❌ Noch nicht. Es geht eher um Sog als um Erklärung."
+                   data-hint="Erklärung oder Shortcut?"
+                   data-model="Hook-Logik: 30 Sekunden + Luxusobjekt. Versprechen: Erfolg sofort, wenn man 'die Methode' hat.">
+                <div class="qTop"><div><b>1)</b> Welche Funktion hat das '30 Sekunden'-Versprechen?</div><span class="qTag">MC</span></div>
+                <div class="options">
+                  <label class="opt"><input type="radio" name="m0_q1" value="a" /> Differenzierte Analyse.</label>
+                  <label class="opt"><input type="radio" name="m0_q1" value="b" /> Komplexität reduzieren, Sog erzeugen.</label>
+                  <label class="opt"><input type="radio" name="m0_q1" value="c" /> Zufälliger Alltag.</label>
+                </div>
+                <div class="quizActions"><button class="checkBtn primary">Prüfen</button><button class="revealBtn">Modelllösung</button></div>
+                <div class="feedback" style="display:none"></div>
+              </div>
+            </div>
+
+            <div class="card" style="background:rgba(0,0,0,.16)">
+              <h4>Mini-Analyse</h4>
+              <div class="quizItem" data-quiz="m0_q2" data-type="short"
+                   data-keywords="hook|claim|versprechen|call-to-action|aufforder|einstieg|behaupt"
+                   data-minhits="2"
+                   data-ok="✅ Gut. Mindestens zwei Bausteine erfasst."
+                   data-bad="❌ Nenne mindestens zwei: Hook, Claim, Call-to-Action."
+                   data-hint="Form: Hook/Claim/CTA."
+                   data-model="Hook: 'Ferrari in 30 Sekunden'. Claim: Erfolg sei sofort erreichbar. CTA: Folge der Methode/Person.">
+                <div class="qTop"><div><b>2)</b> Schreibe Hook/Claim/CTA (2–4 Sätze).</div><span class="qTag">Short</span></div>
+                <input type="text" placeholder="Deine Antwort …" />
+                <div class="quizActions"><button class="checkBtn primary">Prüfen</button><button class="revealBtn">Modelllösung</button></div>
+                <div class="feedback" style="display:none"></div>
+              </div>
+
+              <div class="notice safe"><b>Brücke:</b> Bevor Kritik an Feminismus analysiert wird → Begriff klären (Modul 1).</div>
+            </div>
+          </div>
+        </section>
+
+        <section id="m1" class="card" style="margin-top:16px">
+          <h3>Modul 1 – Begriffe klären: Was ist Feminismus?</h3>
+          <p>Ziel: gemeinsame Ausgangsbasis. Danach prüfen wir: Kritik am Begriff oder am Zerrbild?</p>
+
+          <div class="videoWrap" style="margin-top:12px">
+            <video controls preload="metadata">
+              <source src="https://www.dropbox.com/scl/fi/493n5tcs087ovaa7obfwp/Der-Feminismus-einfach-und-kurz-erkl-rt.mp4?rlkey=ww5tl05n5klmw0sxzizp8idmn&st=ec4b87vy&dl=1" type="video/mp4" />
+            </video>
+          </div>
+
+          <div class="grid2" style="margin-top:14px">
+            <div class="card" style="background:rgba(0,0,0,.16)">
+              <h4>Inhaltssicherung</h4>
+
+              <div class="quizItem" data-quiz="m1_q1" data-type="mc"
+                   data-answer="b"
+                   data-ok="✅ Richtig. Feminismus = Gleichberechtigung."
+                   data-bad="❌ Nicht korrekt. Es geht nicht um Vorrang, sondern um Gleichberechtigung."
+                   data-hint="Gleiche Rechte/Chancen."
+                   data-model="Feminismus: Bewegung für Gleichberechtigung und gegen geschlechtliche Diskriminierung.">
+                <div class="qTop"><div><b>1)</b> Welche Definition trifft am besten zu?</div><span class="qTag">MC</span></div>
+                <div class="options">
+                  <label class="opt"><input type="radio" name="m1_q1" value="a" /> Frauen sind wichtiger.</label>
+                  <label class="opt"><input type="radio" name="m1_q1" value="b" /> Gleichberechtigung, gleiche Chancen und Rechte.</label>
+                  <label class="opt"><input type="radio" name="m1_q1" value="c" /> Lifestyle-Trend.</label>
+                </div>
+                <div class="quizActions"><button class="checkBtn primary">Prüfen</button><button class="revealBtn">Modelllösung</button></div>
+                <div class="feedback" style="display:none"></div>
+              </div>
+
+              <div class="quizItem" data-quiz="m1_q2" data-type="ms"
+                   data-answer="a,c,d"
+                   data-ok="✅ Richtig. Rechte/Chancen, Schutz vor Gewalt, Rollenbilder."
+                   data-bad="❌ Noch nicht. Wähle die Gleichberechtigungs-Punkte."
+                   data-hint="Rechte/Chancen, Gewalt, Rollenbilder."
+                   data-model="Typische Ziele: Gleichstellung, Schutz vor Gewalt, Kritik an diskriminierenden Rollenbildern.">
+                <div class="qTop"><div><b>2)</b> Welche Aussagen passen? (Mehrfachwahl)</div><span class="qTag">MS</span></div>
+                <div class="options">
+                  <label class="opt"><input type="checkbox" value="a" /> Gleichstellung in Bildung und Beruf</label>
+                  <label class="opt"><input type="checkbox" value="b" /> Männer sollen keine Gefühle zeigen</label>
+                  <label class="opt"><input type="checkbox" value="c" /> Einsatz gegen sexuelle Belästigung und Gewalt</label>
+                  <label class="opt"><input type="checkbox" value="d" /> Kritik an starren Rollenbildern</label>
+                </div>
+                <div class="quizActions"><button class="checkBtn primary">Prüfen</button><button class="revealBtn">Modelllösung</button></div>
+                <div class="feedback" style="display:none"></div>
+              </div>
+            </div>
+
+            <div class="card" style="background:rgba(0,0,0,.16)">
+              <h4>Frame-Check (Notiz)</h4>
+              <p class="small">Warum könnte es für Influencer attraktiv sein, Feminismus als Feindbild zu zeichnen?</p>
+              <textarea id="note_m1"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <section id="m2" class="card" style="margin-top:16px">
+          <h3>Modul 2 – Codes & Mechanismen: Inhaltssicherung</h3>
+          <p>Ziel: Mechanismen erkennen (Framing, Rabbit Hole, Selbstoptimierung → Abwertung).</p>
+
+          <div class="grid2">
+            <div class="card" style="background:rgba(0,0,0,.16)">
+              <h4>Kippmoment</h4>
+              <div class="quizItem" data-quiz="m2_q1" data-type="mc"
+                   data-answer="c"
+                   data-ok="✅ Richtig. Problematisch wird es bei Abwertung/Feindbildern."
+                   data-bad="❌ Noch nicht. Entscheidend ist Abwertung/Feindbild/ Gewaltfantasie."
+                   data-hint="Werturteile über Menschen?"
+                   data-model="Kipppunkt: Wenn Motivation mit Abwertung/Feindbildern/Gewalt verknüpft wird.">
+                <div class="qTop"><div><b>1)</b> Wann kippt 'Motivation' besonders in eine problematische Richtung?</div><span class="qTag">MC</span></div>
+                <div class="options">
+                  <label class="opt"><input type="radio" name="m2_q1" value="a" /> Wenn Training erklärt wird.</label>
+                  <label class="opt"><input type="radio" name="m2_q1" value="b" /> Wenn Routine gezeigt wird.</label>
+                  <label class="opt"><input type="radio" name="m2_q1" value="c" /> Wenn Abwertung/Feindbilder/Gewalt normalisiert werden.</label>
+                </div>
+                <div class="quizActions"><button class="checkBtn primary">Prüfen</button><button class="revealBtn">Modelllösung</button></div>
+                <div class="feedback" style="display:none"></div>
+              </div>
+
+              <div class="quizItem" data-quiz="m2_q2" data-type="ms"
+                   data-answer="a,c,e"
+                   data-ok="✅ Richtig. Absolutismus, Feindbildfixierung, Gewaltfantasie."
+                   data-bad="❌ Nicht ganz. Wähle die Radikalisierungs-Indikatoren."
+                   data-hint="'Nur wir sehen die Wahrheit' etc."
+                   data-model="Indikatoren: Absolutismus, Feindbilder, Gewalt/Dominanz, Isolation/Entwertung.">
+                <div class="qTop"><div><b>2)</b> Signale für Radikalisierung? (Mehrfachwahl)</div><span class="qTag">MS</span></div>
+                <div class="options">
+                  <label class="opt"><input type="checkbox" value="a" /> „Nur wir sehen die Wahrheit“</label>
+                  <label class="opt"><input type="checkbox" value="b" /> Interesse an Sport</label>
+                  <label class="opt"><input type="checkbox" value="c" /> Fixes Feindbild</label>
+                  <label class="opt"><input type="checkbox" value="d" /> Wunsch nach Struktur</label>
+                  <label class="opt"><input type="checkbox" value="e" /> Gewalt/Dominanz als Lösung</label>
+                </div>
+                <div class="quizActions"><button class="checkBtn primary">Prüfen</button><button class="revealBtn">Modelllösung</button></div>
+                <div class="feedback" style="display:none"></div>
+              </div>
+            </div>
+
+            <div class="card" style="background:rgba(0,0,0,.16)">
+              <h4>Transkripte im Repo</h4>
+              <p class="small">assets/docs enthält Transkript-PDFs (für Textstellenarbeit, ohne problematische Sprache zu reproduzieren).</p>
+              <ul class="ul">
+                <li>Transkript mp3 (SRF-Kontext) als PDF</li>
+                <li>Transkript mp4 (ARTE-Kontext) als PDF</li>
+                <li>Feminismus-Definition (YouTube-Transkript) als PDF</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section id="m3" class="card" style="margin-top:16px">
+          <h3>Modul 3 – Andrew Tate im Kontext (ARTE)</h3>
+          <p>Ziel: Kontext statt Personenkult. Strukturen: Plattformen, Politik, Ökonomie.</p>
+
+          <div class="videoWrap" style="margin-top:12px">
+            <video controls preload="metadata">
+              <source src="https://www.dropbox.com/scl/fi/ycuo8xjj3tyx4ny3cqxzp/Der-Fall-Andrew-Tate-Einflussreiche-Hetzer-vor-Gericht-ARTE-Hintergrund.mp4?rlkey=su091sw2veka8tn0xbz4w0mwy&st=zvsf0425&dl=1" type="video/mp4" />
+            </video>
+          </div>
+
+          <div class="grid2" style="margin-top:14px">
+            <div class="card" style="background:rgba(0,0,0,.16)">
+              <h4>Inhaltssicherung</h4>
+              <div class="quizItem" data-quiz="m3_q1" data-type="mc"
+                   data-answer="a"
+                   data-ok="✅ Richtig. Tate als Symbol für vermarktete Männlichkeitsbilder + antifeministische Dynamiken."
+                   data-bad="❌ Noch nicht. Es geht um Strukturen, nicht nur Lifestyle."
+                   data-hint="Vermarktung + politische Prozesse."
+                   data-model="Einordnung: Influencer-Ikone, die Männlichkeitsbild vermarktet; Teil antifeministischer/reaktionärer Trends.">
+                <div class="qTop"><div><b>1)</b> Zentrale Einordnung?</div><span class="qTag">MC</span></div>
+                <div class="options">
+                  <label class="opt"><input type="radio" name="m3_q1" value="a" /> Symbol für vermarktete Männlichkeitsbilder & Antifeminismus.</label>
+                  <label class="opt"><input type="radio" name="m3_q1" value="b" /> Nur Autos und Style.</label>
+                  <label class="opt"><input type="radio" name="m3_q1" value="c" /> Kochshow.</label>
+                </div>
+                <div class="quizActions"><button class="checkBtn primary">Prüfen</button><button class="revealBtn">Modelllösung</button></div>
+                <div class="feedback" style="display:none"></div>
+              </div>
+
+              <div class="quizItem" data-quiz="m3_q2" data-type="short"
+                   data-keywords="plattform|algorithm|ökonom|klick|reichweite|monet|polaris|konflikt"
+                   data-minhits="2"
+                   data-ok="✅ Gut. Plattform/Ökonomie als Verstärker benannt."
+                   data-bad="❌ Zu allgemein. Nutze mindestens 2 Begriffe: Plattform, Algorithmus, Klick/Ökonomie, Monetarisierung, Polarisierung."
+                   data-hint="Wer verdient woran?"
+                   data-model="Plattformen belohnen Engagement; polarisierender Content ist klickstark; Influencer monetarisieren Konflikt.">
+                <div class="qTop"><div><b>2)</b> Plattformlogik & Ökonomie in 2–3 Sätzen erklären.</div><span class="qTag">Short</span></div>
+                <input type="text" placeholder="Deine Antwort …" />
+                <div class="quizActions"><button class="checkBtn primary">Prüfen</button><button class="revealBtn">Modelllösung</button></div>
+                <div class="feedback" style="display:none"></div>
+              </div>
+            </div>
+
+            <div class="card" style="background:rgba(0,0,0,.16)">
+              <h4>Frame-Check (Notiz)</h4>
+              <p class="small">Notiere 3 Aussagen aus dem Diskurs: echte Feminismus-Kritik oder Zerrbild?</p>
+              <textarea id="note_m3"></textarea>
+            </div>
+          </div>
+        </section>
+
+        <section id="m4" class="card" style="margin-top:16px">
+          <h3>Modul 4 – Audios: Corona/Hotspot (Transfer)</h3>
+          <p>Ziel: Methodentransfer: Claim/Beleg/Framing in Krisenkommunikation.</p>
+
+          <div class="grid2">
+            <div class="card" style="background:rgba(0,0,0,.16)">
+              <h4>Audio-Playlist</h4>
+
+              <div class="audioWrap" style="margin-top:10px"><audio controls preload="metadata"><source src="https://www.dropbox.com/scl/fi/p7wj7hf815541w1hpglxu/Corona_kompakt_radio_AUDI20251231_NR_0005_a364f8f06b3a48c8a2c0bc0ab0fb6073.mp3?rlkey=ajohccqygae57deqhhf71cdah&st=gejd2l87&dl=1" type="audio/mpeg"></audio></div>
+              <div class="small">Corona kompakt (31.12.2025)</div>
+
+              <div class="audioWrap" style="margin-top:10px"><audio controls preload="metadata"><source src="https://www.dropbox.com/scl/fi/f2m7hhblz1lftf6btfpx3/Hotspot_radio_AUDI20251210_NR_0005_93053e877dd74f2680d8fa34d0899952.mp3?rlkey=x81u71id96sih1iel2ds8rg23&st=ykwe8lpr&dl=1" type="audio/mpeg"></audio></div>
+              <div class="small">Hotspot (10.12.2025)</div>
+
+              <div class="audioWrap" style="margin-top:10px"><audio controls preload="metadata"><source src="https://www.dropbox.com/scl/fi/zpqdf938hlzwehv5epcpm/Hotspot_radio_AUDI20251203_NR_0006_567f68a098eb460c8432bd66ec280090.mp3?rlkey=2pl1aaq686qsertwr8dn1a7y9&st=8t9mh8b4&dl=1" type="audio/mpeg"></audio></div>
+              <div class="small">Hotspot (03.12.2025)</div>
+
+              <div class="audioWrap" style="margin-top:10px"><audio controls preload="metadata"><source src="https://www.dropbox.com/scl/fi/spoboonymssfx4e5got6q/Hotspot_radio_AUDI20251126_NR_0005_6f2c38f39d2f42e68d93847816442a6d.mp3?rlkey=2weeox29zamv9cayix4beb1r6&st=quq3tbc9&dl=1" type="audio/mpeg"></audio></div>
+              <div class="small">Hotspot (26.11.2025)</div>
+
+              <div class="notice"><b>Auftrag:</b> Wähle ein Audio und bearbeite rechts die Methodenkarten.</div>
+            </div>
+
+            <div class="card" style="background:rgba(0,0,0,.16)">
+              <h4>Methodenkarten (Sofortcheck)</h4>
+
+              <div class="quizItem" data-quiz="m4_q1" data-type="mc"
+                   data-answer="c"
+                   data-ok="✅ Richtig. Claim = Behauptung mit Belegbedarf."
+                   data-bad="❌ Nicht korrekt. Claim ist eine überprüfbare Behauptung."
+                   data-hint="Wahr/falsch prüfbar?"
+                   data-model="Claim: überprüfbare Behauptung, die Belege braucht (Zahlen, Studien, Expert*innen, Quellen).">
+                <div class="qTop"><div><b>1)</b> Was ist ein Claim?</div><span class="qTag">MC</span></div>
+                <div class="options">
+                  <label class="opt"><input type="radio" name="m4_q1" value="a" /> Hintergrundmusik.</label>
+                  <label class="opt"><input type="radio" name="m4_q1" value="b" /> Sympathie.</label>
+                  <label class="opt"><input type="radio" name="m4_q1" value="c" /> Behauptung, die Belege braucht.</label>
+                </div>
+                <div class="quizActions"><button class="checkBtn primary">Prüfen</button><button class="revealBtn">Modelllösung</button></div>
+                <div class="feedback" style="display:none"></div>
+              </div>
+
+              <div class="quizItem" data-quiz="m4_q2" data-type="ms"
+                   data-answer="a,b,d"
+                   data-ok="✅ Richtig. Problem/Verantwortung/Lösung sind Framing-Indikatoren."
+                   data-bad="❌ Nicht ganz. Framing: Problemdefinition, Verantwortungszuschreibung, Lösung."
+                   data-hint="Problem – Schuld/Verantwortung – Lösung."
+                   data-model="Framing zeigt sich an Problemdefinition, Verantwortungszuschreibung, moralischer Bewertung, Lösungsvorschlägen.">
+                <div class="qTop"><div><b>2)</b> Woran erkennst du Framing? (Mehrfachwahl)</div><span class="qTag">MS</span></div>
+                <div class="options">
+                  <label class="opt"><input type="checkbox" value="a" /> Was als Problem gilt</label>
+                  <label class="opt"><input type="checkbox" value="b" /> Wem Verantwortung/Schuld zugeschrieben wird</label>
+                  <label class="opt"><input type="checkbox" value="c" /> Schwarzweissdruck</label>
+                  <label class="opt"><input type="checkbox" value="d" /> Welche Lösung nahegelegt wird</label>
+                </div>
+                <div class="quizActions"><button class="checkBtn primary">Prüfen</button><button class="revealBtn">Modelllösung</button></div>
+                <div class="feedback" style="display:none"></div>
+              </div>
+
+              <div class="quizItem" data-quiz="m4_q3" data-type="short"
+                   data-keywords="claim|beleg|quelle|kontext|frame|framing|verantwort|perspektiv"
+                   data-minhits="2"
+                   data-ok="✅ Gut. Du nutzt Analysebegriffe."
+                   data-bad="❌ Zu allgemein. Nutze mindestens 2 Begriffe (Claim, Beleg, Quelle, Kontext, Framing)."
+                   data-hint="Form: Claim/Beleg/Frame."
+                   data-model="Beispiel: Claim: ... / Beleg: ... / Frame: Problem=..., Verantwortung=..., Lösung=...">
+                <div class="qTop"><div><b>3)</b> Notiere zu deinem Audio: 1 Claim + 1 Beleg + 1 Frame (kurz).</div><span class="qTag">Short</span></div>
+                <input type="text" placeholder="Claim/Beleg/Frame …" />
+                <div class="quizActions"><button class="checkBtn primary">Prüfen</button><button class="revealBtn">Beispiel</button></div>
+                <div class="feedback" style="display:none"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="m5" class="card" style="margin-top:16px">
+          <h3>Modul 5 – Rollenspielplattform</h3>
+          <p><b>Hinweis:</b> In dieser Version ist das Rollenspiel als <b>moderiertes Diskussions-Format</b> vorgesehen (Regeln-Button links).
+             Falls du willst, erweitere ich das Repo in einer nächsten Version um Rollen-Zuteilung/Timer/RP.</p>
+          <div class="notice">In dieser Repo-Version liegt der Schwerpunkt auf Inhaltssicherung + Methodentransfer + Export.</div>
+          <div class="card" style="background:rgba(0,0,0,.16)">
+            <h4>Diskussionsauftrag (gelenkt)</h4>
+            <ul class="ul">
+              <li>Rolle 1: Medienjournalist*in – Leitfragen ohne Moralkeule.</li>
+              <li>Rolle 2: Plattform/Algorithmus – Verantwortung und Design.</li>
+              <li>Rolle 3: Peer-Perspektive – warum attraktiv? wo kippt es?</li>
+              <li>Rolle 4: Prävention/Schule – Gesprächswege und Schutz.</li>
+            </ul>
+            <p class="small">Protokolliert eure Ergebnisse unten und exportiert sie am Schluss.</p>
+            <textarea id="roleplayNotes" placeholder="Protokoll: Beobachtungen, Argumente, Belege, Lösungen …"></textarea>
+          </div>
+        </section>
+
+        <section id="m6" class="card" style="margin-top:16px">
+          <h3>Modul 6 – Abschluss: Synthese & Export</h3>
+          <div class="grid2">
+            <div class="card" style="background:rgba(0,0,0,.16)">
+              <h4>Synthese (200–300 Wörter)</h4>
+              <textarea id="finalText" placeholder="Warum wirken einfache Erfolgs- und Männlichkeitsbilder so stark – und wie hält man konstruktiv dagegen?"></textarea>
+
+              <div class="quizItem" data-quiz="m6_q1" data-type="short"
+                   data-keywords="feminismus|framing|rabbit hole|rabbithole|grindset|algorithm|claim|beleg|monet|plattform"
+                   data-minhits="3"
+                   data-ok="✅ Gut. Mindestens drei Fachbegriffe sind enthalten."
+                   data-bad="❌ Verwende mindestens drei Fachbegriffe."
+                   data-hint="Begriffe aus Modulen 1–4."
+                   data-model="Beispiel: Framing + Rabbit Hole + Monetarisierung (optional Feminismus gegen Zerrbilder).">
+                <div class="qTop"><div><b>Check:</b> Enthält dein Text mindestens 3 Fachbegriffe?</div><span class="qTag">Short</span></div>
+                <input type="text" placeholder="Tippe 3–6 Begriffe …" />
+                <div class="quizActions"><button class="checkBtn primary">Prüfen</button><button class="revealBtn">Beispiel</button></div>
+                <div class="feedback" style="display:none"></div>
+              </div>
+
+              <div class="quizActions">
+                <button id="exportBtn" class="primary">Export (Text)</button>
+                <button onclick="window.print()">Drucken</button>
+              </div>
+            </div>
+
+            <div class="card" style="background:rgba(0,0,0,.16)">
+              <h4>Checkliste: Fair diskutieren</h4>
+              <ul class="ul">
+                <li>Fakt vs. Interpretation vs. Framing getrennt?</li>
+                <li>Keine Reproduktion problematischer Zitate?</li>
+                <li>Strohmann vermieden?</li>
+                <li>Konkrete Massnahmen formuliert?</li>
+              </ul>
+              <div class="notice safe"><b>Hinweis:</b> localStorage speichert automatisch – Export dient als Abgabe.</div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
