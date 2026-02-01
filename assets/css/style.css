@@ -1,0 +1,52 @@
+/* =========================================================
+   STYLE.CSS — Alpha Boys Lernumgebung
+   =========================================================
+   ÄNDERUNGSPROTOKOLL
+   [2026-02-01] v1.0 Initial
+   - Layout, Quiz, Rollenspiel, Modal, Overlay-GIF
+   ========================================================= */
+:root{--bg0:#0b0d12;--bg1:#101523;--card:rgba(17,24,39,.60);--text:#e8ecf4;--muted:#a9b4cf;--accent:#7aa2ff;--accent2:#a78bfa;--good:#3ddc97;--bad:#ff5c7a;--warn:#ffcf5a;--r2:26px;--shadow:0 14px 45px rgba(0,0,0,.35);--max:1060px;--font:ui-sans-serif,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial}
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:var(--font);background:radial-gradient(1200px 700px at 15% -10%, rgba(122,162,255,.22), rgba(0,0,0,0)),radial-gradient(1000px 650px at 90% 0%, rgba(167,139,250,.18), rgba(0,0,0,0)),linear-gradient(180deg,var(--bg0),var(--bg1));color:var(--text);overflow-x:hidden}
+.small{font-size:.92rem;color:var(--muted)}a{color:inherit}
+#gifOverlay{position:fixed;inset:0;width:100vw;height:100vh;z-index:9999;pointer-events:none;opacity:.18;mix-blend-mode:screen;background-image:url("../media/overlay.gif");background-size:cover;background-position:center;filter:blur(.2px)}
+@media (prefers-reduced-motion: reduce){#gifOverlay{display:none}}
+#app{display:grid;grid-template-columns:320px 1fr;min-height:100vh}
+#sidebar{position:sticky;top:0;height:100vh;padding:18px 16px;border-right:1px solid rgba(255,255,255,.08);background:linear-gradient(180deg,rgba(17,24,39,.82),rgba(12,15,25,.72));backdrop-filter:blur(10px)}
+.brand{display:flex;gap:12px;align-items:center;padding:10px 10px 12px;border-radius:16px;border:1px solid rgba(255,255,255,.10);box-shadow:0 10px 28px rgba(0,0,0,.22);background:rgba(255,255,255,.04)}
+.logo{width:38px;height:38px;border-radius:14px;background:radial-gradient(circle at 30% 30%,rgba(122,162,255,.95),rgba(122,162,255,.05)),radial-gradient(circle at 70% 70%,rgba(167,139,250,.9),rgba(167,139,250,.05));box-shadow:0 10px 28px rgba(0,0,0,.25)}
+.brand h1{font-size:1.05rem;margin:0}.brand p{margin:2px 0 0;font-size:.85rem;color:var(--muted)}
+.sideControls{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{cursor:pointer;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.06);color:var(--text);padding:10px 12px;font-weight:650;letter-spacing:.2px;box-shadow:0 10px 24px rgba(0,0,0,.18)}
+button:hover{background:rgba(255,255,255,.09)}button:active{transform:translateY(1px)}button.primary{background:linear-gradient(135deg,rgba(122,162,255,.9),rgba(167,139,250,.85));border-color:rgba(255,255,255,.18);color:#0a0c12}button.danger{background:rgba(255,92,122,.13);border-color:rgba(255,92,122,.22)}
+.nav{margin-top:16px;display:flex;flex-direction:column;gap:8px}.nav a{text-decoration:none;display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}.nav a:hover{background:rgba(255,255,255,.06)}.nav a.active{background:rgba(122,162,255,.13);border-color:rgba(122,162,255,.25)}
+.badge{margin-left:auto;font-size:.78rem;padding:.12rem .45rem;border-radius:999px;border:1px solid rgba(255,255,255,.14);color:var(--muted)}
+.progressBox{margin-top:14px;padding:12px;border-radius:16px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04)}
+.progressRow{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.progressBar{height:10px;border-radius:999px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05)}
+.progressBar>div{height:100%;width:0%;background:linear-gradient(90deg,rgba(61,220,151,.9),rgba(122,162,255,.9))}
+#main{padding:24px 18px 60px}.container{max-width:var(--max);margin:0 auto}
+.header{display:flex;gap:12px;align-items:flex-end;justify-content:space-between;margin-bottom:18px}.header h2{margin:0;font-size:1.7rem}
+.pill{display:inline-flex;gap:8px;align-items:center;padding:8px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.05);color:var(--muted);font-size:.9rem}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}@media (max-width:1040px){#app{grid-template-columns:1fr}#sidebar{position:relative;height:auto}.grid2{grid-template-columns:1fr}}
+.card{border-radius:var(--r2);border:1px solid rgba(255,255,255,.10);background:var(--card);box-shadow:var(--shadow);backdrop-filter:blur(10px);padding:18px}
+.card h3{margin:0 0 8px}.card h4{margin:14px 0 8px}.card p{margin:8px 0;color:var(--muted);line-height:1.5}
+.hr{height:1px;background:rgba(255,255,255,.10);margin:14px 0}
+.videoWrap,.audioWrap{border-radius:18px;border:1px solid rgba(255,255,255,.10);overflow:hidden;background:rgba(0,0,0,.25)}video,audio{width:100%;display:block;background:#000}audio{padding:8px;background:rgba(0,0,0,.35)}
+.notice{border-left:4px solid rgba(255,207,90,.9);padding:10px 12px;border-radius:14px;background:rgba(255,207,90,.08);color:var(--text)}.safe{border-left-color:rgba(61,220,151,.9);background:rgba(61,220,151,.08)}.risk{border-left-color:rgba(255,92,122,.9);background:rgba(255,92,122,.08)}
+.ul{margin:8px 0 0;padding-left:18px;color:var(--muted)}.ul li{margin:6px 0;line-height:1.4}
+.quizItem{border-radius:18px;border:1px solid rgba(255,255,255,.10);background:rgba(0,0,0,.18);padding:14px;margin:12px 0}
+.quizItem .qTop{display:flex;gap:10px;align-items:flex-start;justify-content:space-between}
+.qTag{font-size:.78rem;padding:.12rem .5rem;border-radius:999px;border:1px solid rgba(255,255,255,.12);color:var(--muted)}
+.options{margin-top:10px;display:grid;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:10px 10px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);cursor:pointer}
+.opt:hover{background:rgba(255,255,255,.06)}.opt input{margin-top:3px}
+.feedback{margin-top:10px;padding:10px 12px;border-radius:14px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);color:var(--muted)}
+.feedback.good{border-color:rgba(61,220,151,.35);background:rgba(61,220,151,.10);color:var(--text)}
+.feedback.bad{border-color:rgba(255,92,122,.35);background:rgba(255,92,122,.10);color:var(--text)}
+.feedback.neutral{border-color:rgba(122,162,255,.28);background:rgba(122,162,255,.10);color:var(--text)}
+.quizActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+input[type="text"],textarea,select{width:100%;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);border-radius:14px;padding:10px 12px;color:var(--text);outline:none}
+textarea{min-height:110px;resize:vertical}
+#modalBg{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:9000;padding:18px}
+#modal{width:min(900px,100%);border-radius:22px;border:1px solid rgba(255,255,255,.12);background:rgba(17,24,39,.92);box-shadow:0 20px 70px rgba(0,0,0,.55);padding:18px}
+@media print{#sidebar,#gifOverlay,#modalBg{display:none!important}body{background:#fff;color:#000}.card{box-shadow:none;background:#fff;border-color:#ccc}}
